@@ -31,7 +31,8 @@ pipeline {
 			for /f "tokens=5" %%a in ('netstat -ano ^| findstr :8080') do taskkill /PID %%a /F
 			'''
                 //bat 'nohup java -jar target/*.jar > app.log 2>&1 &'
-                bat 'start java -jar target\\super-0.0.1-SNAPSHOT.jar > app.log 2>&1' 
+               // bat 'start java -jar target\\super-0.0.1-SNAPSHOT.jar > app.log 2>&1' 
+                bat "java -jar target\\super-0.0.1-SNAPSHOT.jar"
                                
             }
         }
