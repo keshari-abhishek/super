@@ -14,18 +14,18 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                bat 'mvn clean package -DskipTests'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
         stage('Deploy') {
             steps {
                 // Run your Spring Boot app locally
-                sh 'nohup java -jar target/*.jar > app.log 2>&1 &'
+                bat 'nohup java -jar target/*.jar > app.log 2>&1 &'
             }
         }
     }
