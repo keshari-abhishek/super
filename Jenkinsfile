@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'maven'   // Name as configured in Global Tool Config
+        maven 'maven'   // Name as configured in Global Tool Config (Jenkins)
         jdk 'jdk17'     // Use same name as configured in Jenkins
     }
 
@@ -24,12 +24,12 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                // Run your Spring Boot app locally
             
             // Kill old process if already running
 			bat '''
 			for /f "tokens=5" %%a in ('netstat -ano ^| findstr :8080') do taskkill /PID %%a /F
 			'''
+                // Run your Spring Boot app locally                
                 //bat 'nohup java -jar target/*.jar > app.log 2>&1 &'
                // bat 'start java -jar target\\super-0.0.1-SNAPSHOT.jar > app.log 2>&1' 
                 bat "java -jar target\\super-0.0.1-SNAPSHOT.jar"
