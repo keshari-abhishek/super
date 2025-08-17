@@ -26,7 +26,8 @@ pipeline {
             steps {
                 // Run your Spring Boot app locally
                 //bat 'nohup java -jar target/*.jar > app.log 2>&1 &'
-                bat 'start java -jar target\\super-0.0.1-SNAPSHOT.jar > app.log 2>&1' 
+               // bat 'start java -jar target\\super-0.0.1-SNAPSHOT.jar > app.log 2>&1' 
+                bat "java -jar target\\Super_App-0.0.1-SNAPSHOT.jar"
                                
             }
         }
