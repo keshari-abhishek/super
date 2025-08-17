@@ -25,7 +25,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Run your Spring Boot app locally
-                bat 'nohup java -jar target/*.jar > app.log 2>&1 &'
+                //bat 'nohup java -jar target/*.jar > app.log 2>&1 &'
+                bat 'start /B java -jar target\\*.jar > app.log 2>&1'                
             }
         }
     }
